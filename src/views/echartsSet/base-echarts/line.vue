@@ -1,21 +1,12 @@
 <template>
-    <div class="my_bar" :ref="comm_values.ref" v-loading="loading" element-loading-text="努力加载中"/>
+    <div class="my_line" :ref="comm_values.ref" v-loading="loading" element-loading-text="努力加载中"/>
 </template>
 <script>
     const echarts = require("echarts/lib/echarts");
-    require("echarts/lib/chart/bar");
+    require("echarts/lib/chart/line");
     require("echarts/lib/component/tooltip");
     require("echarts/lib/component/legend");
 
-    /**
-     * const echartValus = {
-            yData: [powerData], //y轴数据
-            xData: xDate, //x轴数据
-            xunit: "量/元", //y轴单位
-            colors: ["#bb4b39"], 颜色盘
-            legend: ["领取量"] 提示信息
-        };
-     */
     export default {
         props: {
             comm_values:{
@@ -30,22 +21,22 @@
         },
         methods: {
             /**
-             * 绘制bar图
-             *  data：x轴数据
+             * 绘制line图
+             *  data：y轴数据
              */
-            drawBarGraphics(data = [0,0,0,0,0,0,0], noData = true, loading = true) {
+             drawLineGraphics(data = [0,0,0,0,0,0,0], type="line", noData = true, loading = true) {
 
                 const that = this;
 
                 const ref = that.$refs[that.comm_values.ref];
 
-                const bar = echarts.init(ref);
-                bar.clear();
+                const line = echarts.init(ref);
+                line.clear();
                 
                 this.loading = loading;
 
                 if(noData){
-                    bar.dispose();
+                    line.dispose();
                     ref.style.background = "";
                     return;
                 }
@@ -56,67 +47,59 @@
                     tooltip: {
                         trigger: "axis",
                         axisPointer: {
-                            type: "shadow"
+                            //line, cross, shodow
+                            type: "cross"
                         },
-                        formatter: "{a}<br/>" + "{c}"
                     },
                     legend: {
                         data: [{name:that.comm_values.legend[0], icon:'circle'}],
                         bottom: 15
                     },
                     grid: {
-                        bottom: "10%",
+                        bottom: "15%",
                         top: "5%",
-                        containLabel: true
+                        left: "4%",
+                        right: "15%"
                     },
                     xAxis: {
-                        name:that.comm_values.xunit,
-                        type: "value",
+                        type: "category",
                         axisTick: {
                             show: false
-                        }
+                        },
+                        name:that.comm_values.xunit,
+                        data:that.comm_values.xData,
                     },
                     yAxis: {
-                        type: "category",
+                        type: "value",
                         axisLine: { show: false },
-                        axisLabel: { show: false },
                         axisTick: { show: false },
-                        splitLine: { show: false },
-                        data:that.comm_values.yData
                     },
                     series: [
                         {
                             name: that.comm_values.legend[0],
-                            type: "bar",
-                            barWidth: "60%",
+                            smooth:true,
+                            barWidth:'60%',
+                            type: type,
                             color: that.comm_values.colors,
-                            label: {
-                                normal: {
-                                    show: true,
-                                    formatter: "{b}",
-                                    position: "right",
-                                    color: "rgba(0, 0, 0, 0.4)"
-                                }
-                            },
                             data: data
                         }
                     ]
                 };
-                bar.resize();
-                bar.setOption(option);
+                line.resize();
+                line.setOption(option);
             }
         }
     };
 </script>
 <style lang="less" scoped>
-    .my_bar {
+    .my_line {
         width: 100%;
         height: 440px;
         margin-top: 10px;
         background: url("../../../../static/imgs/noData.png") no-repeat center;
     }
     @media only screen and (max-width: 1366px){
-       .my_bar {
+       .my_line {
             height: 340px;
         }     
     }

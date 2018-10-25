@@ -59,10 +59,10 @@
     require("echarts/lib/chart/line");
     require("echarts/lib/component/tooltip");
     require("echarts/lib/component/legend");
-    import myBar from './echartsListComponent/bar.vue';
-    import myLine from './echartsListComponent/line.vue';
-    import myLineBar from './echartsListComponent/lineBar.vue';
-    import myPie from './echartsListComponent/pie.vue';
+    import myBar from './base-echarts/bar.vue';
+    import myLine from './base-echarts/line.vue';
+    import myLineBar from './base-echarts/lineBar.vue';
+    import myPie from './base-echarts/pie.vue';
 
     export default {
         components:{
@@ -155,50 +155,17 @@
     .echarts_wrap{
         width: 100%;
         .my-row{
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            min-height: 500px;
-            margin-top: 20px;
             &:first-child{
                 margin-top: 0px;
             }
             &:last-child{
                 margin-bottom: 100px;
             }
-            .my-col-1{
-                width: 100%;
-            }
-            .my-col-2{
-                width: 49.5%;
-            }
-            .my-col-3{
-                width: 32.5%;
-            }
-            .my-col-4{
-                width: 24.5%;
-            }
             .my-col-1, .my-col-2, .my-col-3, .my-col-4{
-                background: #fff;
-                border-radius: 20px;
-                transition: .5s;
                 &:hover{
                     cursor: pointer;
                     box-shadow: 0px 10px rgb(207, 207, 207);
                     transform: translateY(-10px)
-                }
-                .my-tools{
-                    display: flex;
-                    justify-content: space-between;
-                    height: 50px;
-                    line-height: 50px;
-                    margin: 0 30px;
-                    .my-title{
-                        font-size: 2rem;
-                    }
-                    .el-radio-group{
-                        line-height: 50px;
-                    }
                 }
             }
         }

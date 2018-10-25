@@ -1,9 +1,9 @@
 html,
 body {
-  height: 100%;
-  font-family: 微软雅黑;
-  overflow: hidden;
-  font-size: 10px;
+    height: 100%;
+    font-family: "微软雅黑";
+    overflow: hidden;
+    font-size: 10px;
 }
 
 a {
@@ -207,4 +207,42 @@ a {
 .el-breadcrumb__separator {
   font-weight: normal !important;
   color: #000 !important;
+}
+
+.my-row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 500px;
+    margin-top: 20px;
+}
+.my-row .my-col-1{
+    width: 100%;
+}
+.my-row .my-col-2{
+    width: 49.5%;
+}
+.my-row .my-col-3{
+    width: 32.5%;
+}
+.my-row .my-col-4{
+    width: 24.5%;
+}
+.my-row .my-col-1, .my-row .my-col-2, .my-row .my-col-3, .my-row .my-col-4{
+    background: #fff;
+    border-radius: 20px;
+    transition: .5s;
+}
+.my-tools{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 30px;
+}
+.my-tools .my-title{
+    font-size: 2rem;
+}
+.my-tools .el-radio-group{
+    line-height: 50px;
 }

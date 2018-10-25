@@ -64,8 +64,7 @@
                         }
                     },
                     grid:{
-                        y:135,
-                        containLabel :true
+                        x:135,
                     },
                     legend: {
                         orient: 'vertical',

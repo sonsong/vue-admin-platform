@@ -64,9 +64,10 @@
                         bottom: 15
                     },
                     grid: {
-                        bottom: "10%",
-                        top: "10%",
-                        containLabel: true
+                        bottom: "15%",
+                        top: "5%",
+                        left: "4%",
+                        right: "15%"
                     },
                     xAxis: {
                         type: "category",

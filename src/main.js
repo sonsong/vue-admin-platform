@@ -6,7 +6,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import router from './router/index.js';
 
 //阿里矢量图标
-import icon from '@/assets/icon/iconfont.js'
+import icon from 'assets/icon/iconfont.js'
 
 //表单校验
 import veeValidate from 'vee-validate'
@@ -22,14 +22,12 @@ import locale from 'element-ui/lib/locale/lang/en'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI, icon, veeValidate);
-Vue.use(ElementUI, {
-  locale
-});
+Vue.use(ElementUI, {locale});
 
 //图标组件，传入图标名字即可
-import baseIcon from '@/components/baseComponents/base-icon.vue'
+import baseIcon from 'components/base-components/base-icon.vue'
 //时间选择器
-import timePicker from '@/components/baseComponents/base-data-picker.vue'
+import timePicker from 'components/base-components/base-data-picker.vue'
 Vue.component("base-icon", baseIcon);
 Vue.component("base-time-picker", timePicker);
 

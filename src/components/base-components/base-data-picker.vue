@@ -1,16 +1,16 @@
 //时间选择器
 <template>
     <div class="data-picker">
-    <el-date-picker
-      v-model="time"
-      type="date"
-      format="yyyy-MM-dd"
-	  :picker-options="pickerOptions"
-	  :default-value="defaultValue"
-	  :change="changeHandle()"
-      placeholder="请选择日期"
-    />
-  </div>
+        <el-date-picker
+            v-model="time"
+            type="date"
+            format="yyyy-MM-dd"
+            :picker-options="pickerOptions"
+            :default-value="defaultValue"
+            :change="changeHandle()"
+            placeholder="请选择日期"
+        />
+    </div>
 </template>
 <script>
 export default {
@@ -58,11 +58,4 @@ export default {
   height: 37px;
   line-height: 37px;
 }
-/* .el-icon-date{
-  box-sizing: border-box;
-  width: 165px;
-  text-align: right;
-  padding:0px 40px 0px 0px; 
-  font-size: 1.6rem;
-} */
 </style>
